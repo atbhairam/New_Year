@@ -33,7 +33,7 @@ export default function Music({ shouldPlay }) {
   }, [shouldPlay])
 
   return (
-    <audio ref={audioRef} loop preload="none">
+    <audio ref={audioRef} loop preload="auto">
        <source src={backgroundMusic} type="audio/mpeg" />
     </audio>
   )
