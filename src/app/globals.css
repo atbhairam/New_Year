@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --background: #fefefe;
+  --foreground: #383531;
+  --primiary: #cc272e;
+  --font-dancing-script: 'Dancing Script', cursive;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primiary);
+  --font-dancing-script: var(--font-dancing-script);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+button {
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Card */
+.card {
+  position: relative;
+  background-color: rgb(220, 244, 255);
+  background-image: linear-gradient(to bottom,
+      rgba(255, 255, 255, 0.815),
+      rgba(255, 255, 255, 0.651)),
+    url("/images/cardbg.webp");
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+}
+
+.cover {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff8f8;
+  background-image: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.747),
+      rgba(255, 255, 255, 0.15)),
+    url("/images/cover.webp");
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: all 0.7s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card.tapped .cover {
+  bottom: -100%;
+}
+
+.ribbon {
+  font-size: 13px;
+  color: #fff;
+}
+.ribbon {
+  --f: .5em; /* control the folded part*/
+  --r: .8em; /* control the ribbon shape */
+  
+  position: absolute;
+  top: 20px;
+  right: calc(-1*var(--f));
+  padding: 0 15px 0 5px;
+  background: #cc272e;
+  border-bottom: var(--f) solid #0005;
+  border-left: var(--r) solid #0000;
+  clip-path: 
+    polygon(0 0,100% 0,100% calc(100% - var(--f)),calc(100% - var(--f)) 100%,
+      calc(100% - var(--f)) calc(100% - var(--f)),0 calc(100% - var(--f)),
+      var(--r) calc(50% - var(--f)/2));
+}
